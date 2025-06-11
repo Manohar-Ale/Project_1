@@ -17,7 +17,13 @@
 //    delete rootProject.buildDir
 //}
 buildscript {
-    ext.kotlin_version = '1.9.23' // Latest stable Kotlin version
+    ext.kotlin_version = '1.9.22' // Ensure this is the latest supported version
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:8.2.0'  // Latest stable AGP
+    }
+
+
 
     repositories {
         google()
@@ -27,16 +33,19 @@ buildscript {
         }
     }
 
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.android.tools.build:gradle:8.2.2'
-    }
+
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:8.7.3'
+//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
+//    }
+
+
 }
-
 rootProject.buildDir = "../build"
-
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
     project.evaluationDependsOn(":app")
 }
 
@@ -49,4 +58,5 @@ allprojects {
         google()
         mavenCentral()
     }
+
 }

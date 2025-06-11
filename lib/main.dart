@@ -1,4 +1,4 @@
-// main.dart
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'provider/PaymentProvider.dart';
@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => PaymentProvider()..loadStatusFromPrefs(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Subscription App',
         theme: ThemeData(useMaterial3: true),
         home: LoginScreen(),

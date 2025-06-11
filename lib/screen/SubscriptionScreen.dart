@@ -1,4 +1,4 @@
-// screens/subscription_screen.dart
+
 import 'package:flutter/material.dart';
 import 'package:project_1/provider/PaymentProvider.dart';
 import 'package:project_1/screen/PaymentGatewayScreen.dart';
@@ -11,6 +11,7 @@ class SubscriptionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(title: Text("Subscribe")),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -23,6 +24,13 @@ class SubscriptionScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.black, // Text color
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0), // Corner radius
+                ),
+              ),
               onPressed: () {
                 final amount = double.tryParse(amountController.text);
                 if (amount == null || amount <= 0) {
